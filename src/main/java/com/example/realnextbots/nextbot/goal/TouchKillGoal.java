@@ -11,7 +11,7 @@ public class TouchKillGoal extends Goal {
 
     public TouchKillGoal(Mob mob) {
         this.mob = mob;
-        this.setFlags(EnumSet.of(Flag.MOVE, Flag.TARGET));
+        this.setFlags(EnumSet.noneOf(Flag.class));
     }
 
     @Override
