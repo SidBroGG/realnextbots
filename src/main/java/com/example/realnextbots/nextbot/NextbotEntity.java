@@ -1,7 +1,6 @@
 package com.example.realnextbots.nextbot;
 
 import com.example.realnextbots.RealNextbots;
-import com.example.realnextbots.nextbot.goal.TouchKillGoal;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
@@ -25,9 +24,9 @@ public class NextbotEntity extends PathfinderMob {
     public static AttributeSupplier.Builder createAttributes() {
         return PathfinderMob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 9999.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.32D)
+                .add(Attributes.MOVEMENT_SPEED, 0.397D)
                 .add(Attributes.FOLLOW_RANGE, 128.0D)
-                .add(Attributes.ATTACK_DAMAGE, 1.0D); // Required for attack reach
+                .add(Attributes.ATTACK_DAMAGE, Double.MAX_VALUE); // Required for attack reach
     }
 
 
@@ -38,9 +37,8 @@ public class NextbotEntity extends PathfinderMob {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new TouchKillGoal(this));
         this.goalSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0D, false));
     }
 
     @Override
