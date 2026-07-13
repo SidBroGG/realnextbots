@@ -1,6 +1,7 @@
 package com.example.realnextbots.nextbot;
 
 import com.example.realnextbots.RealNextbots;
+import com.example.realnextbots.nextbot.goal.TouchKillGoal;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
@@ -31,7 +32,7 @@ public class NextbotEntity extends PathfinderMob {
 
     @Override
     protected void registerGoals() {
-        super.registerGoals();
+        this.goalSelector.addGoal(1, new TouchKillGoal(this));
     }
 
     @Override
