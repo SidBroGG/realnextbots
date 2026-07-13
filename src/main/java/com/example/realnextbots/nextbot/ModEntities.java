@@ -15,6 +15,7 @@ public final class ModEntities {
             "nextbot_sanya",
             () -> EntityType.Builder
                     .of((EntityType<NextbotEntity> entityType, Level level) -> new NextbotEntity(entityType, level, "nextbot_sanya"), MobCategory.MONSTER)
+                    .sized(1.0F, 2.5F)
                     .build("nextbot_sanya")
     );
 
