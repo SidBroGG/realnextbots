@@ -1,6 +1,8 @@
 package com.example.realnextbots;
 
+import com.example.realnextbots.datagen.DataGenerators;
 import com.example.realnextbots.nextbot.ModEntities;
+import com.example.realnextbots.nextbot.ModSounds;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 
@@ -12,5 +14,8 @@ public class RealNextbots {
 
     public RealNextbots(IEventBus modEventBus) {
         ModEntities.ENTITIES.register(modEventBus);
+        ModSounds.SOUNDS.register(modEventBus);
+
+        modEventBus.addListener(DataGenerators::gatherData);
     }
 }
